@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 
-import { Button } from "../../components/button";
+import { Button } from "../../components/Button";
 
 import { Container, Content, InfoWrapper, Logo, SubTitle, Title } from "./styles";
 

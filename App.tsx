@@ -1,20 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { ActivityIndicator } from 'react-native';
+
+import { ThemeProvider } from 'styled-components';
+
+import { useFonts, Urbanist_400Regular, Urbanist_700Bold_Italic, Urbanist_700Bold } from '@expo-google-fonts/urbanist';
+
+import theme from './src/theme';
+
+import { EventCard } from './src/components/eventCard';
 
 export default function App() {
+  const [fontsLoaded] = useFonts({Urbanist_400Regular, Urbanist_700Bold, Urbanist_700Bold_Italic});
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <ThemeProvider theme={theme}>
+      {fontsLoaded ? <EventCard/> : <ActivityIndicator /> }
+      
       <StatusBar style="auto" />
-    </View>
+    </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

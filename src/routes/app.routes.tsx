@@ -12,23 +12,23 @@ export function AppRoutes(){
   return(
     <Navigator screenOptions={{headerShown: false}}>
       <Screen 
-        name='Home'
+        name='home'
         component={Home}
       />
       <Screen 
-        name='Payment'
+        name='payment'
         component={Payment}
       />
       <Screen 
-        name='EventDetails'
+        name='eventDetails'
         component={EventDetails}
       />
       <Screen 
-        name='EventList'
+        name='eventList'
         component={EventList}
       />
       <Screen 
-        name='Checkout'
+        name='checkout'
         component={Checkout}
       />
     </Navigator>

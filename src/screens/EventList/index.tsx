@@ -1,50 +1,43 @@
-import { Container } from "./styles";
+import { View, FlatList } from 'react-native';
 
-import { Header } from "../../components/Header"
+import { EventCard } from '../../components/EventCard';
+import { Header } from '../../components/Header';
+import { Highlight } from '../../components/Highlight';
+import { Container } from './styles';
 
-import { View } from "react-native";
-import { EventCard } from "../../components/EventCard";
-import { Hightlight } from "../../components/Highlight";
-
-export function EventList(){
-  return(
+export function EventList() {
+  return (
     <Container>
       <View>
-        <Header
-        icon='arrow-back-ios'
-        />
+        <Header icon="arrow-back-ios" />
       </View>
-
-      <Hightlight
-      title="Lista de Eventos"
-      subtitle="Meus eventos"
-      isEventList={true}
+      <Highlight
+        title="Lista de Eventos"
+        subtitle="Meus eventos"
+        isEventList={true}
       />
-
-      <EventCard
-      eventname="Marejada"
-      dateandhour="10/10/2022 às 20h00"
-      participants={521}
+      <FlatList
+        data={[
+          {
+            eventName: 'Marejada',
+            dateAndHour: '10/10/2022',
+            participants: 670,
+          },
+          {
+            eventName: 'Octoberfest',
+            dateAndHour: '15/10/2022',
+            participants: 893,
+          },
+          {
+            eventName: 'Volvo Ocean Race',
+            dateAndHour: '23/11/2022',
+            participants: 752,
+          },
+        ]}
+        keyExtractor={item => item.eventName}
+        renderItem={({ item }) => <EventCard {...item} />}
+        showsVerticalScrollIndicator={false}
       />
-
-      <EventCard
-      eventname="Octoberfest"
-      dateandhour="15/10/2022 às 20h00"
-      participants={837}
-      />
-
-      <EventCard
-      eventname="Volvo Ocean Race"
-      dateandhour="22/11/2022 às 14h00"
-      participants={784}
-      />
-
-      <EventCard
-      eventname="São João"
-      dateandhour="06/07/2022 a partir das 13h00"
-      participants={670}
-      />
-
     </Container>
-  )
+  );
 }

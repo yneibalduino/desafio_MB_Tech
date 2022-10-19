@@ -2,18 +2,17 @@ import styled from "styled-components/native";
 
 import {MaterialIcons} from '@expo/vector-icons'
 
-import { SafeAreaView } from 'react-native-safe-area-context';
-
 export type ButtonIconTypeStyleProps = 'PRIMARY' | 'SECONDARY';
 
 type Props ={
   type: ButtonIconTypeStyleProps;
 }
 
-export const Container = styled(SafeAreaView)`
-  flex-direction: row;
+export const Container = styled.View`
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
+  margin-bottom: 60px;
 `;
 
 export const Content = styled.TouchableOpacity<Props>`

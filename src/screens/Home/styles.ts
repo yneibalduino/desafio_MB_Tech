@@ -1,9 +1,5 @@
-import styled from 'styled-components/native';
-
 import { SafeAreaView } from 'react-native-safe-area-context';
-
-import { EventText } from '../../components/EventText';
-
+import styled from 'styled-components/native';
 
 export const Container = styled(SafeAreaView)`
   flex: 1;
@@ -26,18 +22,15 @@ export const Logo = styled.Image`
 `;
 
 export const Title = styled.Text`
-  font-size: ${({theme}) => theme.FONT_SIZE.XL}px;
-  font-family: ${({theme}) =>theme.FONT_FAMILY.BOLD_ITALIC};
-
+  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD_ITALIC};
   text-align: center;
-
   width: 80%;
-
   margin-top: 28px;
   margin-bottom: 16px;
 `;
 
-export const SubTitle = styled(EventText)`
+export const SubTitle = styled.Text`
   font-size: 16px;
-  color: ${({theme}) => theme.COLORS.GRAY_DARK};
+  color: ${({ theme }) => theme.COLORS.GRAY_DARK};
 `;

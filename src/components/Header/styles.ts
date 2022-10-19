@@ -1,12 +1,11 @@
-import styled from "styled-components/native";
-
-import {MaterialIcons} from '@expo/vector-icons'
+import { MaterialIcons } from '@expo/vector-icons';
+import styled from 'styled-components/native';
 
 export type ButtonIconTypeStyleProps = 'PRIMARY' | 'SECONDARY';
 
-type Props ={
+type Props = {
   type: ButtonIconTypeStyleProps;
-}
+};
 
 export const Container = styled.View`
   justify-content: space-between;
@@ -25,10 +24,10 @@ export const Content = styled.TouchableOpacity<Props>`
 export const Icon = styled(MaterialIcons).attrs<Props>(({}) => ({
   size: 30,
 }))`
-  color: ${({theme}) => theme.COLORS.GRAY_DARK}
-  `;
+  color: ${({ theme }) => theme.COLORS.GRAY_DARK};
+`;
 
-  export const Logo = styled.Image`
+export const Logo = styled.Image`
   width: 95px;
   height: 95px;
 `;

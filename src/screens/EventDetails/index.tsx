@@ -1,46 +1,124 @@
-import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
-import { View } from 'react-native';
+import { useEffect, useState } from 'react';
 
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { Alert } from 'react-native';
+
+import { Event } from '../../@types/event';
 import { Routes } from '../../@types/navigation';
-import { Button } from '../../components/Button';
 import { EventCard } from '../../components/EventCard';
+import { Button } from '../../components/FloatingButton';
 import { Header } from '../../components/Header';
 import { Highlight } from '../../components/Highlight';
-import { ButtonContent, Container, Content, Text } from './styles';
+import { ScreenContainer } from '../../components/ScreenContainer';
+import { formatMoney } from '../../utils/currency';
+import { userValidationSchema } from '../../validation/user.validation';
+import {
+  ButtonContent,
+  Container,
+  Content,
+  Input,
+  QuantityButton,
+  QuantityButtonText,
+  QuantityContent,
+  Text,
+  TotalPrice,
+} from './styles';
 
 export function EventDetails() {
   const navigation = useNavigation();
+  const [ticketQuantity, setTicketQuantity] = useState(1);
+  const [canContinue, setCanContinue] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
+  const [userName, setUserName] = useState('');
 
   const {
     params: { event },
   } = useRoute<RouteProp<Routes, 'eventDetails'>>();
 
-  function handleCheckout(pressedEvent: Event) {
-    navigation.navigate('checkout', {
-      event: pressedEvent,
-    });
+  function handlePayment(pressedEvent: Event) {
+    if (canContinue) {
+      userValidationSchema
+        .validate({
+          userName: userName,
+          userEmail: userEmail,
+        })
+        .then(() => {
+          navigation.navigate('payment', {
+            event: pressedEvent,
+            ticketQuantity,
+            userName,
+            userEmail,
+          });
+        })
+        .catch(e => {
+          Alert.alert(e.errors[0]);
+        });
+    }
   }
+
+  function sumTicket() {
+    setTicketQuantity(ticketQuantity + 1);
+  }
+
+  function decreaseTicket() {
+    if (ticketQuantity > 1) {
+      setTicketQuantity(ticketQuantity - 1);
+    }
+  }
+
+  useEffect(() => {
+    if (userEmail && userName) {
+      setCanContinue(true);
+    } else {
+      setCanContinue(false);
+    }
+  }, [userEmail, userName]);
 
   return (
     <Container>
-      <View>
+      <ScreenContainer>
         <Header icon="arrow-back-ios" />
-      </View>
-      <Highlight title="Detalhes do Evento" isEventList={false} />
-      <EventCard {...event} disabled />
-      <Content>
-        <Text>Regras do evento:</Text>
-        <Text>Traje livre (no dress code).</Text>
-        <Text>Permitida a entrada de pets.</Text>
-        <Text>Proibida a entrada de qualquer tipo de comida ou bebida.</Text>
-        <Text>Evento livre para todas as idades.</Text>
-      </Content>
-      <ButtonContent>
-        <Button
-          title="Comprar ingressos"
-          onPress={() => handleCheckout(event)}
+        <Highlight title="Detalhes do Evento" isEventList={false} />
+        <EventCard {...event} disabled />
+        <Content>
+          <Text>{event.details.clothing}</Text>
+          <Text>{event.details.pets}</Text>
+          <Text>{event.details.drink}</Text>
+          <Text>{event.details.age}</Text>
+        </Content>
+        <Highlight title="Dados do comprador" isEventList={false} />
+        <Input
+          value={userName}
+          onChangeText={setUserName}
+          placeholder="nome do usuário"
         />
-      </ButtonContent>
+        <Input
+          value={userEmail}
+          onChangeText={setUserEmail}
+          placeholder="email"
+        />
+        <Highlight title="Quantidade de ingressos" isEventList={false} />
+        <QuantityContent>
+          <QuantityButton onPress={decreaseTicket}>
+            <QuantityButtonText>-</QuantityButtonText>
+          </QuantityButton>
+          <QuantityButtonText>{ticketQuantity}</QuantityButtonText>
+          <QuantityButton onPress={sumTicket}>
+            <QuantityButtonText>+</QuantityButtonText>
+          </QuantityButton>
+        </QuantityContent>
+        <TotalPrice>
+          Total {formatMoney(event.value * ticketQuantity)}
+        </TotalPrice>
+        <ButtonContent>
+          <Button
+            disabled={!canContinue}
+            type={canContinue ? 'CAN_CONTINUE' : 'CANT_CONTINUE'}
+            title="Comprar ingressos"
+            onPress={() => handlePayment(event)}
+          />
+        </ButtonContent>
+      </ScreenContainer>
     </Container>
   );
 }

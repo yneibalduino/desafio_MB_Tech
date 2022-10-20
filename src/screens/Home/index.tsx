@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 
 import logoIgm from '../../assets/logo.png';
-import { Button } from '../../components/Button';
+import { Button } from '../../components/FloatingButton';
 import {
   Container,
   Content,

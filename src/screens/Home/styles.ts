@@ -34,3 +34,15 @@ export const SubTitle = styled.Text`
   font-size: 16px;
   color: ${({ theme }) => theme.COLORS.GRAY_DARK};
 `;
+
+export const Text = styled.Text`
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  color: ${({ theme }) => theme.COLORS.GRAY_DARK};
+`;
+
+export const Value = styled.Text`
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  color: ${({ theme }) => theme.COLORS.GRAY_DARK};
+`;

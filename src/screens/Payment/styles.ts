@@ -3,16 +3,13 @@ import styled from 'styled-components/native';
 
 export const Container = styled(SafeAreaView)`
   flex: 1;
-  padding: 24px;
 `;
 
 export const Content = styled.View`
   border-radius: 10px;
   padding: 10px;
   background-color: ${({ theme }) => theme.COLORS.GRAY_LIGHT};
-  margin-top: 10px;
-  /* flex-direction: row;
-  justify-content: space-between; */
+  margin-bottom: 10px;
 `;
 
 export const TextContent = styled.View`

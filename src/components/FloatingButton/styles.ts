@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export type ButtonTypeStyleProps = 'PRIMARY' | 'SECONDARY';
+export type ButtonTypeStyleProps = 'CAN_CONTINUE' | 'CANT_CONTINUE';
 
 type Props = {
   type: ButtonTypeStyleProps;
@@ -11,10 +11,11 @@ export const Container = styled.TouchableOpacity<Props>`
   min-height: 56px;
   max-height: 56px;
   background-color: ${({ theme, type }) =>
-    type === 'PRIMARY' ? theme.COLORS.BLUE : theme.COLORS.RED};
-  border-radius: 25px;
+    type === 'CAN_CONTINUE' ? theme.COLORS.BLUE : theme.COLORS.GRAY_LIGHT};
+  border-radius: 24px;
   justify-content: center;
   align-items: center;
+  margin-top: 16px;
 `;
 
 export const Title = styled.Text`

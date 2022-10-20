@@ -1,9 +1,5 @@
 import { TouchableOpacityProps } from 'react-native';
 
-export type Props = TouchableOpacityProps & Event;
+import { Event } from '../../@types/event';
 
-export type Event = {
-  eventName: string;
-  dateAndHour?: string;
-  participants?: number;
-};
+export type Props = TouchableOpacityProps & Event;

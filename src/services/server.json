@@ -1,0 +1,62 @@
+{
+  "events": [
+    {
+      "eventName": "Contratar Ynei",
+      "dateAndHour": "24/10/2022 às 11h00",
+      "participants": 1,
+      "event_rules": {
+        "rules": "Regras do evento:",
+        "hour": "Não será permitida a entrada após o horário agendado.",
+        "drink": "Proibido recusar a contratação do candidato à apresentação (este candidato é indispensável, kkk)."
+      }
+    },
+    {
+      "eventName": "Marejada",
+      "dateAndHour": "10/10/2022 às 18h00",
+      "participants": 680,
+      "event_rules": {
+        "rules": "Regras do evento:",
+        "clothing": "Traje livre (no dress code)",
+        "hour": "Permitida a entrada de pets, desde que na coleira ou no colo de seu dono.",
+        "drink": "Proibido entrar com qualquer tipo de bebida ou comida no local do evento.",
+        "age": "Evento livre para todas as idades."
+      }
+    },
+    {
+      "eventName": "Volvo Ocean Race",
+      "dateAndHour": "23/11/2022 às 10h00",
+      "participants": 1211,
+      "event_rules": {
+        "rules": "Regras do evento:",
+        "clothing": "Traje livre (no dress code)",
+        "hour": "Permitida a entrada de pets, desde que na coleira ou no colo de seu dono.",
+        "drink": "Proibido entrar com qualquer tipo de bebida ou comida no local do evento.",
+        "age": "Evento livre para todas as idades."
+      }
+    },
+    {
+      "eventName": "Octoberfest",
+      "dateAndHour": "20/10/2022 às 18h00",
+      "participants": 876,
+      "event_rules": {
+        "rules": "Regras do evento:",
+        "clothing": "Traje livre (no dress code)",
+        "hour": "Permitida a entrada de pets, desde que na coleira ou no colo de seu dono.",
+        "drink": "Proibido entrar com qualquer tipo de bebida ou comida no local do evento.",
+        "age": "Evento livre para todas as idades."
+      }
+    },
+    {
+      "eventName": "Festa do Colono",
+      "dateAndHour": "20/07/2023 às 11h00",
+      "participants": 550,
+      "event_rules": {
+        "rules": "Regras do evento:",
+        "clothing": "Traje livre (no dress code)",
+        "hour": "Permitida a entrada de pets, desde que na coleira ou no colo de seu dono.",
+        "drink": "Proibido entrar com qualquer tipo de bebida ou comida no local do evento.",
+        "age": "Evento livre para todas as idades."
+      }
+    }
+  ]
+}

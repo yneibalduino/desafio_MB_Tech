@@ -20,14 +20,7 @@ export const EventName = styled.Text`
   color: ${({ theme }) => theme.COLORS.GRAY_DARK};
 `;
 
-export const DateAndHour = styled.Text`
-  font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  color: ${({ theme }) => theme.COLORS.GRAY_DARK};
-  margin-top: 5px;
-`;
-
-export const Participants = styled.Text`
+export const InfoWrapper = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
   color: ${({ theme }) => theme.COLORS.GRAY_DARK};

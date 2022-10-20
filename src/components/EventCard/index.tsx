@@ -1,10 +1,4 @@
-import {
-  Container,
-  Content,
-  DateAndHour,
-  EventName,
-  Participants,
-} from './styles';
+import { Container, Content, EventName, InfoWrapper } from './styles';
 import { Props } from './types';
 
 export function EventCard({
@@ -18,13 +12,13 @@ export function EventCard({
       <EventName>{eventName}</EventName>
 
       <Content>
-        <DateAndHour>Data e hora</DateAndHour>
-        <DateAndHour>{dateAndHour}</DateAndHour>
+        <InfoWrapper>Data e hora</InfoWrapper>
+        <InfoWrapper>{dateAndHour}</InfoWrapper>
       </Content>
 
       <Content>
-        <Participants>Numero de participantes</Participants>
-        <Participants>{participants}</Participants>
+        <InfoWrapper>Numero de participantes</InfoWrapper>
+        <InfoWrapper>{participants}</InfoWrapper>
       </Content>
     </Container>
   );

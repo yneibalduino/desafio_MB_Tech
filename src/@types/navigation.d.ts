@@ -1,4 +1,4 @@
-import { Event } from '../components/EventCard/types';
+import { Event } from './event';
 
 export type Routes = {
   home: undefined;
@@ -6,11 +6,11 @@ export type Routes = {
   eventDetails: {
     event: Event;
   };
-  checkout: {
-    event: Event;
-  };
   payment: {
     event: Event;
+    ticketQuantity: number;
+    userName: string;
+    userEmail: string;
   };
 };
 export declare global {

@@ -6,7 +6,7 @@ export default {
 
     BLUE: '#64A2FF',
 
-    GRAY_LIGHT: '#F0F0F0',
+    GRAY_LIGHT: '#E0E0E0',
     GRAY_DARK: '#8B8B8B',
   },
   FONT_FAMILY: {
@@ -19,5 +19,5 @@ export default {
     MD: 16,
     LG: 18,
     XL: 24,
-  }
+  },
 };

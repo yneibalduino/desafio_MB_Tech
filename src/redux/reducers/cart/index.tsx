@@ -8,11 +8,11 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState: initialState,
   reducers: {
-    addTicket: (state, action: PayloadAction<Cart>) => {
+    addTicketToCart: (state, action: PayloadAction<Cart>) => {
       state.tickets.push(action.payload);
     },
   },
 });
 
-export const { addTicket } = cartSlice.actions;
+export const { addTicketToCart } = cartSlice.actions;
 export const { reducer: CartReducer } = cartSlice;

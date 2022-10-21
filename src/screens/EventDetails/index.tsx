@@ -10,6 +10,8 @@ import { Button } from '../../components/FloatingButton';
 import { Header } from '../../components/Header';
 import { Highlight } from '../../components/Highlight';
 import { ScreenContainer } from '../../components/ScreenContainer';
+import { useAppDispatch } from '../../hooks/redux';
+import { addTicketToCart } from '../../redux/reducers/cart';
 import { formatMoney } from '../../utils/currency';
 import { userValidationSchema } from '../../validation/user.validation';
 import {
@@ -30,30 +32,49 @@ export function EventDetails() {
   const [canContinue, setCanContinue] = useState(false);
   const [userEmail, setUserEmail] = useState('');
   const [userName, setUserName] = useState('');
+  const dispatch = useAppDispatch();
 
   const {
     params: { event },
   } = useRoute<RouteProp<Routes, 'eventDetails'>>();
 
-  function handlePayment(pressedEvent: Event) {
+  function validation(onSuccessCallback: () => void) {
     if (canContinue) {
       userValidationSchema
         .validate({
           userName: userName,
           userEmail: userEmail,
         })
-        .then(() => {
-          navigation.navigate('payment', {
-            event: pressedEvent,
-            ticketQuantity,
-            userName,
-            userEmail,
-          });
-        })
+        .then(onSuccessCallback)
         .catch(e => {
           Alert.alert(e.errors[0]);
         });
     }
+  }
+
+  function handleAddCart() {
+    validation(() => {
+      dispatch(
+        addTicketToCart({
+          event: event,
+          ticketQuantity: ticketQuantity,
+          userName: userName,
+          userEmail: userEmail,
+        }),
+      );
+      navigation.navigate('eventList');
+    });
+  }
+
+  function handlePayment(pressedEvent: Event) {
+    validation(() => {
+      navigation.navigate('payment', {
+        event: pressedEvent,
+        ticketQuantity,
+        userName,
+        userEmail,
+      });
+    });
   }
 
   function sumTicket() {
@@ -114,7 +135,13 @@ export function EventDetails() {
           <Button
             disabled={!canContinue}
             type={canContinue ? 'CAN_CONTINUE' : 'CANT_CONTINUE'}
-            title="Comprar ingressos"
+            title="Adicionar ao carrinho"
+            onPress={handleAddCart}
+          />
+          <Button
+            disabled={!canContinue}
+            type={canContinue ? 'CAN_CONTINUE' : 'CANT_CONTINUE'}
+            title="Ir para pagamento"
             onPress={() => handlePayment(event)}
           />
         </ButtonContent>

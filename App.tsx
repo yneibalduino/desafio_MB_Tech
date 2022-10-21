@@ -8,8 +8,10 @@ import {
 } from '@expo-google-fonts/urbanist';
 import { StatusBar } from 'expo-status-bar';
 import { ActivityIndicator } from 'react-native';
+import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
+import store from './src/redux';
 import { Routes } from './src/routes';
 import theme from './src/theme';
 
@@ -22,7 +24,9 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      {fontsLoaded ? <Routes /> : <ActivityIndicator />}
+      <Provider store={store}>
+        {fontsLoaded ? <Routes /> : <ActivityIndicator />}
+      </Provider>
 
       <StatusBar style="auto" />
     </ThemeProvider>

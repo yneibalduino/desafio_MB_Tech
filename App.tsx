@@ -1,5 +1,7 @@
 import React from 'react';
 
+if (__DEV__) require('./src/tools/reactotron');
+
 import {
   useFonts,
   Urbanist_400Regular,

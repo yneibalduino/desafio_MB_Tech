@@ -3,6 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import logoIgm from '../../assets/logo.png';
 import { Button } from '../../components/FloatingButton';
 import {
+  ButtonWrapper,
   Container,
   Content,
   InfoWrapper,
@@ -18,6 +19,10 @@ export function Home() {
     navigation.navigate('eventList');
   }
 
+  function handleMyCart() {
+    navigation.navigate('myCart');
+  }
+
   return (
     <Container>
       <Content>
@@ -26,7 +31,10 @@ export function Home() {
           <Title>Olá! Seja bem vindo ao EVER EVENT!</Title>
           <SubTitle>Sempre há uma festinha para você!</SubTitle>
         </InfoWrapper>
-        <Button title="Ver Eventos Disponíveis" onPress={handleEventList} />
+        <ButtonWrapper>
+          <Button title="Ver Eventos Disponíveis" onPress={handleEventList} />
+          <Button title="Meus Ingressos" onPress={handleMyCart} />
+        </ButtonWrapper>
       </Content>
     </Container>
   );

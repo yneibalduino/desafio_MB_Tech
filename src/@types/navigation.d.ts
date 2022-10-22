@@ -6,12 +6,8 @@ export type Routes = {
   eventDetails: {
     event: Event;
   };
-  payment: {
-    event: Event;
-    ticketQuantity: number;
-    userName: string;
-    userEmail: string;
-  };
+  payment: undefined;
+  myCart: undefined;
 };
 export declare global {
   namespace ReactNavigation {

@@ -16,6 +16,10 @@ export const InfoWrapper = styled.View`
   justify-content: center;
 `;
 
+export const ButtonWrapper = styled.View`
+  justify-content: center;
+`;
+
 export const Logo = styled.Image`
   width: 216px;
   height: 216px;

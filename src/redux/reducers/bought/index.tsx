@@ -8,11 +8,11 @@ export const boughtSlice = createSlice({
   name: 'bought',
   initialState: initialState,
   reducers: {
-    addTicket: (state, action: PayloadAction<Bought>) => {
-      state.tickets.push(action.payload);
+    boughtTickets: (state, action: PayloadAction<Bought[]>) => {
+      state.tickets = [...state.tickets, ...action.payload];
     },
   },
 });
 
-export const { addTicket } = boughtSlice.actions;
+export const { boughtTickets } = boughtSlice.actions;
 export const { reducer: BoughtReducer } = boughtSlice;

@@ -29,17 +29,17 @@ export function EventList() {
     navigation.navigate('myCart');
   }
 
-  useEffect(() => {
-    async function fetchEvents() {
-      try {
-        const response = await api.get('/events');
-        setEvents(response.data as Event[]);
-        setEventsFromApi(response.data as Event[]);
-        console.log(response.data);
-      } catch (error) {
-        console.log(error);
-      }
+  async function fetchEvents() {
+    try {
+      const response = await api.get('/events');
+      setEvents(response.data as Event[]);
+      setEventsFromApi(response.data as Event[]);
+    } catch (error) {
+      console.warn(error);
     }
+  }
+
+  useEffect(() => {
     fetchEvents();
   }, []);
 

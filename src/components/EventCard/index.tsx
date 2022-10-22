@@ -21,7 +21,7 @@ export function EventCard({
         <InfoWrapper>{participants}</InfoWrapper>
       </Content>
       <Content>
-        <InfoWrapper>Valor</InfoWrapper>
+        <InfoWrapper>Valor unitário</InfoWrapper>
         <InfoWrapper>{formatMoney(value)}</InfoWrapper>
       </Content>
     </Container>

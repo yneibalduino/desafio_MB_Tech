@@ -5,6 +5,7 @@ export type Bought = {
   ticketQuantity: number;
   userName: string;
   userEmail: string;
+  transactionId: string;
 };
 
 export type IBoughtStore = {

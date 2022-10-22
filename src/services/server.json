@@ -1,6 +1,7 @@
 {
   "events": [
     {
+      "id": "08f0b504-5194-11ed-bdc3-0242ac120002",
       "eventName": "Contratar Ynei",
       "dateAndHour": "24/10/2022 às 11h00",
       "participants": 1,
@@ -13,6 +14,7 @@
       }
     },
     {
+      "id": "08f0b8e2-5194-11ed-bdc3-0242ac120002",
       "eventName": "Marejada",
       "dateAndHour": "10/10/2022 às 18h00",
       "participants": 680,
@@ -25,6 +27,7 @@
       }
     },
     {
+      "id": "08f0bb08-5194-11ed-bdc3-0242ac120002",
       "eventName": "Volvo Ocean Race",
       "dateAndHour": "23/11/2022 às 10h00",
       "participants": 1211,
@@ -37,6 +40,7 @@
       }
     },
     {
+      "id": "08f0bcfc-5194-11ed-bdc3-0242ac120002",
       "eventName": "Octoberfest",
       "dateAndHour": "20/10/2022 às 18h00",
       "participants": 876,
@@ -49,6 +53,7 @@
       }
     },
     {
+      "id": "08f0c3e6-5194-11ed-bdc3-0242ac120002",
       "eventName": "Festa do Colono",
       "dateAndHour": "20/07/2023 às 11h00",
       "participants": 550,

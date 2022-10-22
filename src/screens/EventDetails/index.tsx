@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { Alert } from 'react-native';
 
-import { Event } from '../../@types/event';
 import { Routes } from '../../@types/navigation';
 import { EventCard } from '../../components/EventCard';
 import { Button } from '../../components/FloatingButton';
@@ -62,18 +61,21 @@ export function EventDetails() {
           userEmail: userEmail,
         }),
       );
-      navigation.navigate('eventList');
+      navigation.navigate('myCart');
     });
   }
 
-  function handlePayment(pressedEvent: Event) {
+  function handlePayment() {
     validation(() => {
-      navigation.navigate('payment', {
-        event: pressedEvent,
-        ticketQuantity,
-        userName,
-        userEmail,
-      });
+      dispatch(
+        addTicketToCart({
+          event: event,
+          ticketQuantity: ticketQuantity,
+          userName: userName,
+          userEmail: userEmail,
+        }),
+      );
+      navigation.navigate('payment');
     });
   }
 
@@ -142,7 +144,7 @@ export function EventDetails() {
             disabled={!canContinue}
             type={canContinue ? 'CAN_CONTINUE' : 'CANT_CONTINUE'}
             title="Ir para pagamento"
-            onPress={() => handlePayment(event)}
+            onPress={handlePayment}
           />
         </ButtonContent>
       </ScreenContainer>

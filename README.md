@@ -16,12 +16,11 @@ Aplicativo de teste técnico para processo seletivo na empresa MB Labs. Trata-se
 -   [ ] Styled Components
 -   [ ] Axios
 -   [ ] Redux
--   [ ] Javascript
--   [ ] ContextAPI (json server)
+-   [ ] TypeScript
+-   [ ] API (json server)
 -   [ ] Reactotron
 -   [ ] React Navigation Stack
 -   [ ] Yup
--   [ ] Uuid
 
 ### ✨ Ambiente de desenvolvimento
 -   [ ] ESLint

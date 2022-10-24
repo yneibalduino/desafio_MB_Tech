@@ -11,12 +11,11 @@ export const cartSlice = createSlice({
     addTicketToCart: (state, action: PayloadAction<Cart>) => {
       state.tickets.push(action.payload);
     },
-    removeTicketFromCart: state => {
-      state.tickets = [];
+    removeTicketFromCart: (state, action: PayloadAction<number>) => {
+      state.tickets.splice(action.payload, 1);
     },
   },
 });
 
-export const { addTicketToCart } = cartSlice.actions;
-export const { removeTicketFromCart } = cartSlice.actions;
+export const { addTicketToCart, removeTicketFromCart } = cartSlice.actions;
 export const { reducer: CartReducer } = cartSlice;

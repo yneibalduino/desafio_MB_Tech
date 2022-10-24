@@ -1,25 +1,21 @@
-import { useEffect, useState } from 'react';
-
+import { EventCard } from '@components/EventCard';
+import { Button } from '@components/FloatingButton';
+import { Header } from '@components/Header';
+import { Highlight } from '@components/Highlight';
+import { useAppDispatch, useAppSelector } from '@hooks/redux';
 import { useNavigation } from '@react-navigation/native';
+import { removeTicketFromCart } from '@redux/reducers/cart';
+import { formatMoney } from '@utils/currency';
 import { useTranslation } from 'react-i18next';
-import { FlatList } from 'react-native';
+import { Alert, FlatList } from 'react-native';
 
-import { EventCard } from '../../components/EventCard';
-import { Button } from '../../components/FloatingButton';
-import { Header } from '../../components/Header';
-import { Highlight } from '../../components/Highlight';
-import { useAppSelector } from '../../hooks/redux';
-import { formatMoney } from '../../utils/currency';
 import { Container, Content, Text, Text2, TextContent } from './styles';
 
 export function MyCart() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [totalTickets, setTotalTickets] = useState(0);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [totalPrice, setTotalPrice] = useState(0);
   const { tickets } = useAppSelector(state => state.cart);
   const navigation = useNavigation();
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
 
   function buyContinue() {
     navigation.navigate('eventList');
@@ -29,25 +25,18 @@ export function MyCart() {
     navigation.navigate('payment');
   }
 
-  function sumTicketsPrice() {
-    const sum = tickets.reduce((accumulator, cart) => {
-      return accumulator + cart.event.value * cart.ticketQuantity;
-    }, 0);
-    setTotalPrice(sum);
+  function handleRemoveTickets(index: number) {
+    Alert.alert('Remover', 'Deseja remover este evento?', [
+      {
+        text: 'Sim',
+        onPress: () => dispatch(removeTicketFromCart(index)),
+      },
+      {
+        text: 'Não',
+        style: 'cancel',
+      },
+    ]);
   }
-
-  function sumTicketsQuantity() {
-    const sum = tickets.reduce((accumulator, cart) => {
-      return accumulator + cart.ticketQuantity;
-    }, 0);
-    setTotalTickets(sum);
-  }
-
-  useEffect(() => {
-    sumTicketsPrice();
-    sumTicketsQuantity();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <Container>
@@ -56,9 +45,12 @@ export function MyCart() {
       <FlatList
         data={tickets}
         keyExtractor={item => item.event.eventName}
-        renderItem={({ item: cart }) => (
+        renderItem={({ item: cart, index }) => (
           <>
-            <EventCard {...cart.event} disabled />
+            <EventCard
+              {...cart.event}
+              onPress={() => handleRemoveTickets(index)}
+            />
             <Content>
               <TextContent>
                 <Text>Comprador</Text>

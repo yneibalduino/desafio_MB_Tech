@@ -14,7 +14,15 @@ export function EventCard({
       <EventName>{eventName}</EventName>
       <Content>
         <InfoWrapper>Data e hora</InfoWrapper>
-        <InfoWrapper>{dateAndHour}</InfoWrapper>
+        <InfoWrapper>
+          {new Date(dateAndHour).toLocaleString([], {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+          })}
+        </InfoWrapper>
       </Content>
       <Content>
         <InfoWrapper>Numero de participantes</InfoWrapper>

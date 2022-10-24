@@ -37,6 +37,7 @@ O layout do aplicativo foi projetado pelo próprio desenvolvedor.
 ## 💫 Executando o projeto
 
 Para executar o projeto, você deve utilizar gerenciador de pacotes **npm install** para instalar todas as dependencias.
+Utilizar o comando EXPO START e NPM RUN API após as dependências serem instaladas.
 
 <br />
 

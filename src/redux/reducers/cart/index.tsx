@@ -14,8 +14,12 @@ export const cartSlice = createSlice({
     removeTicketFromCart: (state, action: PayloadAction<number>) => {
       state.tickets.splice(action.payload, 1);
     },
+    resetTickets: state => {
+      state.tickets = [];
+    },
   },
 });
 
-export const { addTicketToCart, removeTicketFromCart } = cartSlice.actions;
+export const { addTicketToCart, removeTicketFromCart, resetTickets } =
+  cartSlice.actions;
 export const { reducer: CartReducer } = cartSlice;

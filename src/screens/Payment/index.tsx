@@ -11,7 +11,7 @@ import { Highlight } from '../../components/Highlight';
 import { ScreenContainer } from '../../components/ScreenContainer';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { boughtTickets } from '../../redux/reducers/bought';
-import { removeTicketFromCart } from '../../redux/reducers/cart';
+import { resetTickets } from '../../redux/reducers/cart';
 import { formatMoney } from '../../utils/currency';
 import {
   ButtonContent,
@@ -38,7 +38,7 @@ export function Payment() {
         }),
       ),
     );
-    dispatch(removeTicketFromCart());
+    dispatch(resetTickets());
     Alert.alert('Parabéns! Você adquiriu seus ingressos!');
     navigation.navigate('eventList');
   }

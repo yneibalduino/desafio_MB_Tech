@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 import { Alert } from 'react-native';
 
 import { Routes } from '../../@types/navigation';
@@ -32,6 +33,8 @@ export function EventDetails() {
   const [userEmail, setUserEmail] = useState('');
   const [userName, setUserName] = useState('');
   const dispatch = useAppDispatch();
+
+  const { t } = useTranslation();
 
   const {
     params: { event },
@@ -101,7 +104,10 @@ export function EventDetails() {
     <Container>
       <ScreenContainer>
         <Header icon="arrow-back-ios" />
-        <Highlight title="Detalhes do Evento" isEventList={false} />
+        <Highlight
+          title={t('PROFILES.TITLE.EVENTDETAILS')}
+          isEventList={false}
+        />
         <EventCard {...event} disabled />
         <Content>
           <Text>{event.details.clothing}</Text>
@@ -109,7 +115,7 @@ export function EventDetails() {
           <Text>{event.details.drink}</Text>
           <Text>{event.details.age}</Text>
         </Content>
-        <Highlight title="Dados do comprador" isEventList={false} />
+        <Highlight title={t('PROFILES.TITLE.BUYERDATA')} isEventList={false} />
         <Input
           value={userName}
           onChangeText={setUserName}
@@ -120,7 +126,10 @@ export function EventDetails() {
           onChangeText={setUserEmail}
           placeholder="email"
         />
-        <Highlight title="Quantidade de ingressos" isEventList={false} />
+        <Highlight
+          title={t('PROFILES.TITLE.TICKETQUANTITY')}
+          isEventList={false}
+        />
         <QuantityContent>
           <QuantityButton onPress={decreaseTicket}>
             <QuantityButtonText>-</QuantityButtonText>
@@ -137,13 +146,13 @@ export function EventDetails() {
           <Button
             disabled={!canContinue}
             type={canContinue ? 'CAN_CONTINUE' : 'CANT_CONTINUE'}
-            title="Adicionar ao carrinho"
+            title={t('PROFILES.BUTTON.ADDTOCART')}
             onPress={handleAddCart}
           />
           <Button
             disabled={!canContinue}
             type={canContinue ? 'CAN_CONTINUE' : 'CANT_CONTINUE'}
-            title="Ir para pagamento"
+            title={t('PROFILES.BUTTON.PAYMENT')}
             onPress={handlePayment}
           />
         </ButtonContent>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 import { FlatList } from 'react-native';
 
 import { EventCard } from '../../components/EventCard';
@@ -18,6 +19,7 @@ export function MyCart() {
   const [totalPrice, setTotalPrice] = useState(0);
   const { tickets } = useAppSelector(state => state.cart);
   const navigation = useNavigation();
+  const { t } = useTranslation();
 
   function buyContinue() {
     navigation.navigate('eventList');
@@ -50,7 +52,7 @@ export function MyCart() {
   return (
     <Container>
       <Header icon="arrow-back-ios" />
-      <Highlight title="Meu Carrinho" isEventList={false} />
+      <Highlight title={t('PROFILES.TITLE.MYCART')} isEventList={false} />
       <FlatList
         data={tickets}
         keyExtractor={item => item.event.eventName}
@@ -81,8 +83,8 @@ export function MyCart() {
         )}
         showsVerticalScrollIndicator={false}
       />
-      <Button title="Continuar comprando" onPress={buyContinue} />
-      <Button title="Finalizar compra" onPress={buyFinish} />
+      <Button title={t('PROFILES.BUTTON.BUYCONTINUE')} onPress={buyContinue} />
+      <Button title={t('PROFILES.BUTTON.BUYFINISH')} onPress={buyFinish} />
     </Container>
   );
 }

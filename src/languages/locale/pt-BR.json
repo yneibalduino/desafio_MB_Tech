@@ -1,0 +1,28 @@
+{
+  "error": {},
+  "translation": {
+    "REGION": "BR",
+    "REGION_MASK": "pt-BR",
+    "PROFILES": {
+      "BUTTON": {
+        "MYTICKETS": "Meus Ingressos",
+        "EVENTLIST": "Ver Eventos Disponíveis",
+        "MYCART": "Meu Carrinho",
+        "ADDTOCART": "Adicionar ao carrinho",
+        "BUYCONTINUE": "Continuar comprando",
+        "PAYMENT": "Ir para pagamento",
+        "BUYFINISH": "Finalizar compra",
+        "DOPAYMENT": "Realizar pagamento"
+    },
+    "TITLE": {
+      "HELLO": "Olá! Seja bem vindo ao EVER EVENT!",
+      "EVENTLIST": "Lista de Eventos",
+      "EVENTDETAILS": "Detalhes do Evento",
+      "BUYERDATA": "Dados do comprador",
+      "TICKETQUANTITY": "Quantidade de ingressos",
+      "MYCART": "Meu Carrinho",
+      "CARTDETAILS": "Detalhes do pedido"
+    }
+    }
+  }
+}

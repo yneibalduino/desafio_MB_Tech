@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 import { View, FlatList, Text } from 'react-native';
 
 import { Event } from '../../@types/event';
@@ -18,6 +19,7 @@ export function EventList() {
   const { tickets } = useAppSelector(state => state.bought);
   const [checked, setChecked] = useState(false);
   const [eventsFromApi, setEventsFromApi] = useState<Event[]>([]);
+  const { t } = useTranslation();
 
   function handleEventDetails(pressedEvent: Event) {
     navigation.navigate('eventDetails', {
@@ -62,7 +64,7 @@ export function EventList() {
         <Header icon="arrow-back-ios" />
       </View>
       <Highlight
-        title="Lista de Eventos"
+        title={t('PROFILES.TITLE.EVENTLIST')}
         subtitle={`Meu eventos ${tickets.length}`}
         isEventList={true}
         setChecked={setChecked}
@@ -83,7 +85,7 @@ export function EventList() {
           <Text>Você ainda nao comprou ingressos para nenhum evento.</Text>
         )}
       />
-      <Button title="Meu Carrinho" onPress={handleMyCart} />
+      <Button title={t('PROFILES.BUTTON.MYCART')} onPress={handleMyCart} />
     </Container>
   );
 }

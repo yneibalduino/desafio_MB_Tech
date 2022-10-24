@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -27,6 +28,7 @@ export function Payment() {
   const [totalTickets, setTotalTickets] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   function finishPayment() {
     dispatch(
@@ -67,7 +69,10 @@ export function Payment() {
         <View>
           <Header icon="arrow-back-ios" />
         </View>
-        <Highlight title="Detalhes da compra" isEventList={false} />
+        <Highlight
+          title={t('PROFILES.TITLE.CARTDETAILS')}
+          isEventList={false}
+        />
         <Content>
           <TextContent>
             <Text>Forma de pagamento</Text>
@@ -99,7 +104,7 @@ export function Payment() {
         <ButtonContent>
           <Button
             type="CAN_CONTINUE"
-            title="Finalizar compra"
+            title={t('PROFILES.BUTTON.BUYFINISH')}
             onPress={finishPayment}
           />
         </ButtonContent>

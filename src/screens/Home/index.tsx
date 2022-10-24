@@ -1,8 +1,8 @@
+import { Button } from '@components/FloatingButton';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
 import logoIgm from '../../assets/logo.png';
-import { Button } from '../../components/FloatingButton';
 import {
   ButtonWrapper,
   Container,

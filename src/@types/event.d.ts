@@ -1,7 +1,7 @@
 export type Event = {
   id: string;
   eventName: string;
-  dateAndHour?: string;
+  dateAndHour: string;
   participants?: number;
   value: number;
   details: {

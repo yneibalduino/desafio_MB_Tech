@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 
+import { EventCard } from '@components/EventCard';
+import { Button } from '@components/FloatingButton';
+import { Header } from '@components/Header';
+import { Highlight } from '@components/Highlight';
+import { useAppSelector } from '@hooks/redux';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { View, FlatList, Text } from 'react-native';
 
 import { Event } from '../../@types/event';
-import { EventCard } from '../../components/EventCard';
-import { Button } from '../../components/FloatingButton';
-import { Header } from '../../components/Header';
-import { Highlight } from '../../components/Highlight';
-import { useAppSelector } from '../../hooks/redux';
 import { api } from '../../services/api';
 import { Container } from './styles';
 

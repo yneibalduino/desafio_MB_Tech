@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
 
+import { EventCard } from '@components/EventCard';
+import { Button } from '@components/FloatingButton';
+import { Header } from '@components/Header';
+import { Highlight } from '@components/Highlight';
+import { ScreenContainer } from '@components/ScreenContainer';
+import { useAppDispatch } from '@hooks/redux';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { addTicketToCart } from '@redux/reducers/cart';
+import { userValidationSchema } from '@validation/user.validation';
 import { useTranslation } from 'react-i18next';
 import { Alert } from 'react-native';
 
 import { Routes } from '../../@types/navigation';
-import { EventCard } from '../../components/EventCard';
-import { Button } from '../../components/FloatingButton';
-import { Header } from '../../components/Header';
-import { Highlight } from '../../components/Highlight';
-import { ScreenContainer } from '../../components/ScreenContainer';
-import { useAppDispatch } from '../../hooks/redux';
-import { addTicketToCart } from '../../redux/reducers/cart';
 import { formatMoney } from '../../utils/currency';
-import { userValidationSchema } from '../../validation/user.validation';
 import {
   ButtonContent,
   Container,

@@ -9,6 +9,8 @@ Aplicativo de teste técnico para processo seletivo na empresa MB Labs. Trata-se
 -   [ ] Escolher quantidade de ingressos;
 -   [ ] Definir nome e email do comprador;
 -   [ ] Filtrar por ingressos adquiridos;
+-   [ ] Adicionar tickets ao carrinho;
+-   [ ] Remover tickets do carrinho;
 
 ## ✨ Tecnologias
 
